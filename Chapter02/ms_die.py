@@ -14,7 +14,7 @@ class MSDie:
         self.num_sides = num_sides
         self.current_value = self.roll()
 
-    def roll(self):
+    def roll(self) -> int:
         self.current_value = random.randrange(1, self.num_sides)
         return self.current_value
 
