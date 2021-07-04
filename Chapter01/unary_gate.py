@@ -1,3 +1,6 @@
+from logic_gate import LogicGate
+
+
 class UnaryGate(LogicGate):
 
     def __init__(self, label):
