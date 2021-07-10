@@ -40,7 +40,7 @@ class Stack(object):
         """
         Get the value of the top item in the stack
         """
-        return self._items[-1]
+        return self._items[-1] if self._items else None
 
     def is_empty(self) -> bool:
         """
