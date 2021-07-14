@@ -3,15 +3,15 @@ from typing import List
 from stack import Stack
 
 
-def infix_to_postfix(expression: str):# -> List[str]:
-    op_stack = Stack()
-    output_list = []
-    # expression_split = expression.split()
+def infix_to_postfix(expression: str) -> str:
     operators = {
         "*": 2, "/": 2,
         "+": 1, "-": 1,
         "(": 0, ")": 0,
     }
+
+    op_stack = Stack()
+    output_list = []
 
     for char in expression.split():
         # print(char)
