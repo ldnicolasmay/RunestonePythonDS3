@@ -17,7 +17,7 @@ def infix_to_postfix(expression: str) -> str:
         # print(char)
         if char not in operators:
             output_list.append(char)
-        if char == "(":
+        elif char == "(":
             op_stack.push(char)
         elif char == ")":
             while not op_stack.peek() == "(":
