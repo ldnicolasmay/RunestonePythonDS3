@@ -33,7 +33,7 @@ class Stack(object):
         """
         if self._items:
             return self._items.pop()
-        warnings.warn(f"stack is empty")
+        warnings.warn("stack is empty")
         return None
 
     def peek(self) -> Any:
@@ -46,7 +46,6 @@ class Stack(object):
         """
         Check if stack is empty
         """
-        # return len(self._items) == 0  # traditional approach
         return not bool(self._items)  # Pythonic approach
 
     def size(self) -> int:
