@@ -1,3 +1,9 @@
 venv/
 __pycache__/
+.idea/
+
+__init__.py
+*.pyc
+*.iml
+pyrightconfig.json
 

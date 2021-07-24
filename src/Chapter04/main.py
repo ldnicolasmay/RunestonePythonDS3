@@ -1,4 +1,4 @@
-from stack import Stack
+from adt.stack import Stack
 
 s = Stack()
 

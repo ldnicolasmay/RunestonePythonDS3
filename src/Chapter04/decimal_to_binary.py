@@ -1,4 +1,4 @@
-from stack import Stack
+from adt.stack import Stack
 
 # 233 // 2 = 166 rem 1
 # 116 // 2 =  58 rem 0

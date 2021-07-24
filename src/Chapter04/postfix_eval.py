@@ -1,4 +1,4 @@
-from stack import Stack
+from adt.stack import Stack
 from infix_to_postfix import infix_to_postfix
 
 

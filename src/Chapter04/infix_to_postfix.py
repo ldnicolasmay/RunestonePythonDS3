@@ -1,6 +1,4 @@
-from typing import List
-
-from stack import Stack
+from adt.stack import Stack
 
 
 def infix_to_postfix(expression: str) -> str:
