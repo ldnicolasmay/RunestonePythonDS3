@@ -3,14 +3,10 @@ from typing import Any
 
 
 class Stack(object):
-    """
-    Stack implementation as a list
-    """
+    """Stack implementation as a list"""
 
     def __init__(self) -> None:
-        """
-        Create new stack
-        """
+        """Create new stack"""
         self._items = []
         return None
 
@@ -21,36 +17,26 @@ class Stack(object):
         return repr(self._items)
 
     def push(self, item) -> None:
-        """
-        Add an item to the stack
-        """
+        """Add an item to the stack"""
         self._items.append(item)
         return None
 
     def pop(self) -> Any:
-        """
-        Remove an item from the stack
-        """
+        """Remove an item from the stack"""
         if self._items:
             return self._items.pop()
         warnings.warn("stack is empty")
         return None
 
     def peek(self) -> Any:
-        """
-        Get the value of the top item in the stack
-        """
+        """Get the value of the top item in the stack"""
         return self._items[-1] if self._items else None
 
     def is_empty(self) -> bool:
-        """
-        Check if stack is empty
-        """
+        """Check if stack is empty"""
         return not bool(self._items)  # Pythonic approach
 
     def size(self) -> int:
-        """
-        Get the numer of items in the stack
-        """
+        """Get the numer of items in the stack"""
         return len(self._items)
 
