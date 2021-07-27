@@ -1,6 +1,7 @@
 import warnings
 from typing import Any
 
+
 class Queue(object):
     """Queue implementation as a list"""
 
@@ -32,4 +33,3 @@ class Queue(object):
     def size(self) -> int:
         """Get the number of items in the queue"""
         return len(self._items)
-

@@ -1,6 +1,7 @@
 import warnings
 from typing import Any
 
+
 class Deque(object):
     """Deque implementation as a list"""
 
@@ -43,4 +44,3 @@ class Deque(object):
     def size(self) -> int:
         """Get the number of items in the deque"""
         return len(self._items)
-

@@ -8,7 +8,6 @@ class Stack(object):
     def __init__(self) -> None:
         """Create new stack"""
         self._items = []
-        return None
 
     def __str__(self) -> str:
         return str(self._items)
@@ -37,6 +36,5 @@ class Stack(object):
         return not bool(self._items)  # Pythonic approach
 
     def size(self) -> int:
-        """Get the numer of items in the stack"""
+        """Get the number of items in the stack"""
         return len(self._items)
-
