@@ -4,6 +4,7 @@ from typing import Any
 class Node(object):
     """"""
 
+
     def __init__(self, data: Any):
         self._data = data
         self._next_node = None
@@ -26,12 +27,3 @@ class Node(object):
 
     def __str__(self):
         return f"{str(self.data)},{str(self.next_node)}"
-
-
-# n0 = Node(0)
-# print(n0)
-# n1 = Node(1)
-# print(n1)
-#
-# n0.set_next_node(n1)
-# print(n0)

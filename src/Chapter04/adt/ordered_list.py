@@ -5,7 +5,7 @@ from node import Node
 
 class OrderedList(object):
     """
-
+    Linked list wherein items stay ordered
     """
 
     def __init__(self):
@@ -54,30 +54,25 @@ class OrderedList(object):
         return -1
 
     def add(self, item: Any):
-        new_node = Node(item)
         previous_node = None
         current_node = self.head
+        new_node = Node(item)
 
-        while current_node is not None:
-            if previous_node is None and item < current_node.data:
-                self.head = new_node
-                new_node.next_node = current_node
-                break
-            elif previous_node is None and item > current_node.data:
-                previous_node = current_node
-                current_node = current_node.next_node
-                continue
-            elif previous_node.data < item < current_node.data:
-                previous_node.next_node = new_node
-                new_node.next_node = current_node
-                break
-            elif current_node.data < item and current_node.next_node is None:
-                current_node.next_node = new_node
-                break
+        while current_node is not None and current_node.data < item:
             previous_node = current_node
             current_node = current_node.next_node
 
-        if current_node is None:
+        if previous_node is None:  # head
+            new_node.next_node = self.head
+            self.head = new_node
+        elif previous_node is not None and current_node is None:  # end
+            current_node = new_node
+            previous_node.next_node = current_node
+        else:  # middle
+            previous_node.next_node = new_node
+            new_node.next_node = current_node
+
+        if current_node is None:  # empty list
             self.head = new_node
 
     def remove(self, item: Any):
@@ -97,29 +92,26 @@ class OrderedList(object):
             current_node = current_node.next_node
 
     def pop(self, pos: int = None) -> Any:
-        pass
+        pos = pos if pos is not None else self.size() - 1
+        previous_node = None
+        current_node = self.head
+        current_pos = 0
 
+        if current_node is None:
+            raise ValueError("cannot pop item from empty list")
 
-listX = OrderedList()
-print(f"listX={listX}")
+        if pos < 0 or self.size() - 1 < pos:
+            raise ValueError(f"pos of {pos} is out of range")
 
-listX.add(5)
-print(f"listX={listX}")
-
-listX.add(4)
-print(f"listX={listX}")
-
-listX.add(1)
-print(f"listX={listX}")
-
-listX.add(0)
-print(f"listX={listX}")
-
-listX.add(6)
-print(f"listX={listX}")
-
-listX.add(2)
-print(f"listX={listX}")
-
-listX.add(3)
-print(f"listX={listX}")
+        while current_node is not None:
+            if pos == current_pos:
+                if previous_node is None:  # head
+                    self.head = current_node.next_node
+                    return current_node.data
+                else:
+                    previous_node.next_node = current_node.next_node
+                    return current_node.data
+            else:
+                previous_node = current_node
+                current_node = current_node.next_node
+                current_pos = current_pos + 1

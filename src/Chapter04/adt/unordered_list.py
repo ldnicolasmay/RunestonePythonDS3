@@ -4,6 +4,9 @@ from node import Node
 
 
 class UnorderedList(object):
+    """
+    Linked list wherein ite are placed by user
+    """
 
     def __init__(self) -> None:
         self.head: Node = None
