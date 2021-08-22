@@ -1,4 +1,4 @@
-from ..Chapter04.adt.stack import Stack
+from adt.stack import Stack
 
 
 def to_str(n: int, base: int) -> str:
