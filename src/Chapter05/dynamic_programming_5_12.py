@@ -81,29 +81,31 @@ def make_change_4(
     denoms_list: List[int],
     lookup_table: Dict[int, int],
 ) -> List[int]:
-
     lookup_table = make_change_lookup_table(amount, denoms_list, lookup_table)
-
-    coins_list = []
     current_amount = amount
+    coins_list = []
+
     while current_amount > 0:
         print(f"current_amount={current_amount}")
         if lookup_table[current_amount] == 1:
             coins_list.append(current_amount)
             current_amount = current_amount - current_amount
         else:
-            current_denoms = [d for d in denoms_list if d <= current_amount]
-            counts = [
-                lookup_table[current_amount - d] for d in denoms_list if d <= current_amount
-            ]
-            current_denom_counts = dict(zip(current_denoms, counts))
-            min_dict = dict(
-                (k, v) for k, v in current_denom_counts.items()
-                if k == min(current_denom_counts, key=current_denom_counts.get)
+            current_denom_counts = dict(
+                (denom, lookup_table[current_amount - denom]) for denom in denoms_list
+                if denom <= current_amount
             )
-            min_coin = list(min_dict.keys())[0]
-            coins_list.append(min_coin)
-            current_amount = current_amount - min_coin
+            print(f"current_denom_counts={current_denom_counts}")
+
+            min_denom_count = dict(
+                (denom, count) for denom, count in current_denom_counts.items()
+                if denom == min(current_denom_counts, key=current_denom_counts.get)
+            )
+            print(f"min_denom_count={min_denom_count}")
+
+            min_denom = list(min_denom_count.keys())[0]
+            coins_list.append(min_denom)
+            current_amount = current_amount - min_denom
 
     return coins_list
 
