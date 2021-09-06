@@ -62,16 +62,16 @@ def foo(
 ) -> Dict[str, Stack]:
 
     if n == 1:
-        print(f"if    towers={towers}; n={n}")
-        towers[to_pole].push(towers[from_pole].pop())
+        # print(f"if    towers={towers}; n={n}")
         print(f"pop from_pole -> push to_pole")
+        towers[to_pole].push(towers[from_pole].pop())
     else:
-        print(f"else1 towers={towers}; n={n}")
+        # print(f"else1 towers={towers}; n={n}")
         towers = foo(towers, n - 1, from_pole, to_pole, with_pole)
-        print(f"else2 towers={towers}; n={n}")
-        towers[to_pole].push(towers[from_pole].pop())
+        # print(f"else2 towers={towers}; n={n}")
         print(f"pop from_pole -> push to_pole")
-        print(f"else3 towers={towers}; n={n}")
+        towers[to_pole].push(towers[from_pole].pop())
+        # print(f"else3 towers={towers}; n={n}")
         towers = foo(towers, n - 1, with_pole, from_pole, to_pole)
 
     return towers
@@ -81,7 +81,7 @@ f_pole = Stack()
 w_pole = Stack()
 t_pole = Stack()
 
-my_n = 2
+my_n = 4
 
 for i in reversed(range(my_n)):
     f_pole.push(i)
